@@ -2,10 +2,17 @@
 
 This repository is an example of React.js development on Deno.
 
-## Exec
+## Build React
+
 
 ```shell
-$ deno run --allow-all --unstable index.ts
+$ deno run --allow-all --unstable build.ts
+```
+
+## Start HTTP Server
+
+```shell
+$ deno run --allow-net --allow-read index.tss
 ```
 
 ## References
