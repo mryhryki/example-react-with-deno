@@ -4,4 +4,4 @@ import React from "https://esm.sh/react";
 //
 // ReactDOM.render(<Index />, document.getElementById("react-root"));
 
-console.log(React.createElement("div", {}, "Hello World"));
+console.log(<div>Hello, world!</div>);
