@@ -4,6 +4,4 @@ interface Props {
   children: string;
 }
 
-export const Index: React.FC<Props> = (props) =>
-  <div>{props.children}</div>
-
+export const Index: React.FC<Props> = (props) => <div>{props.children}</div>;
