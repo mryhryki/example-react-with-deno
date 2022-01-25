@@ -7,3 +7,9 @@ This repository is an example of React.js development on Deno.
 ```shell
 $ deno run --allow-net server.tsx
 ```
+
+## Build Client
+
+```shell
+$ deno run --allow-all --unstable build.ts
+```
