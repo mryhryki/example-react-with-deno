@@ -1,6 +1,5 @@
 import React from "https://esm.sh/react";
 // https://ja.reactjs.org/docs/react-dom-server.html
-import ReactDOMServer from "https://esm.sh/react-dom/server.js";
 import { serve } from "https://deno.land/std@0.122.0/http/server.ts";
 
 const PORT = 8080;
@@ -21,17 +20,15 @@ const handler = async (request: Request): Promise<Response> => {
   switch (pathname) {
     case "/":
       return new Response(
-        ReactDOMServer.renderToStaticMarkup(
-          <html>
-          <head>
-            <title>Hello, deno!</title>
-          </head>
-          <body>
-            <div id="react-root"/>
-            <script src="/public/bundle.js"/>
-          </body>
-          </html>,
-        ),
+        `<html>
+           <head>
+             <title>Hello, deno!</title>
+           </head>
+           <body>
+             <div id="react-root"></div>
+             <script src="/public/bundle.js"></script>
+           </body>
+         </html>`,
         {
           headers: { "Content-Type": "text/html; charset=utf-8" },
         },
