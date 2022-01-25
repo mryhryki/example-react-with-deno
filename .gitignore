@@ -1,2 +1,2 @@
-dist/**
-!dist/.keep
+public/bundle.js
+public/bundle.js.map

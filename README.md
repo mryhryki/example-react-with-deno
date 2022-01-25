@@ -2,14 +2,14 @@
 
 This repository is an example of React.js development on Deno.
 
-## Server
+## Exec
 
 ```shell
-$ deno run --allow-net --allow-read server.tsx
+$ deno run --allow-all --unstable index.ts
 ```
 
-## Build Client
+## References
 
-```shell
-$ deno run --allow-all --unstable build.ts
-```
+- https://doc.deno.land/deno/unstable@v1.17.1/~/Deno.emit
+- https://scrapbox.io/deno-ja/Deno.emit()
+- https://scrapbox.io/deno-ja/Deno_script%E3%82%92bundle_&_minify%E3%81%99%E3%82%8B
