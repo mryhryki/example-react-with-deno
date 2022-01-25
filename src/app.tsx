@@ -1,4 +1,5 @@
 import React from "https://esm.sh/react";
 import ReactDOM from "https://esm.sh/react-dom";
+import { Index } from "./pages/index.tsx";
 
-ReactDOM.render(<div>Hello, React!</div>, document.getElementById("react-root"));
+ReactDOM.render(<Index>Hello, React with Deno!</Index>, document.getElementById("react-root"));

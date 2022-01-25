@@ -6,11 +6,17 @@
 
 // import * as esbuild from 'https://deno.land/x/esbuild@v0.14.13/mod.js'
 
+// https://doc.deno.land/deno/unstable@v1.17.1/~/Deno.emit
 const { files } = await Deno.emit("./src/app.tsx", {
   bundle: "module",
+  check: true,
   compilerOptions: {
-    lib: ["dom", "esnext"],
+    allowSyntheticDefaultImports: true,
+    jsx: "react",
     jsxFactory: "React.createElement",
+    lib: ["dom", "esnext"],
+    module: "esnext",
+    target: "es2015"
   },
 });
 
