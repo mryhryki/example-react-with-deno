@@ -6,14 +6,27 @@ import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 const PORT = 8080;
 
 const handler = async (request: Request): Promise<Response> => {
+  const {pathname} = new URL(request.url)
+
+  if (pathname.startsWith( '/dist/')) {
+    const data = await Deno.readFile(pathname.substring(1))
+    const decoder = new TextDecoder()
+    return new Response(decoder.decode(data), {
+      headers: {
+        'content-type': 'text/javascript'
+      }
+    })
+  }
+
   return new Response(
     ReactDOMServer.renderToStaticMarkup(
       <html>
         <head>
-          <title>Hello, world!</title>
+          <title>Hello, deno!</title>
         </head>
         <body>
-          <h1>Hello, world!</h1>
+          <div id="react-root" />
+          <script src="/dist/bundle.js" />
         </body>
       </html>,
     ),
