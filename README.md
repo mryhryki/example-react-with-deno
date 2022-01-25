@@ -4,7 +4,6 @@ This repository is an example of React.js development on Deno.
 
 ## Build React
 
-
 ```shell
 $ deno run --allow-all --unstable build.ts
 ```
@@ -12,7 +11,7 @@ $ deno run --allow-all --unstable build.ts
 ## Start HTTP Server
 
 ```shell
-$ deno run --allow-net --allow-read index.tss
+$ deno run --allow-net --allow-read index.tsx
 ```
 
 ## References
