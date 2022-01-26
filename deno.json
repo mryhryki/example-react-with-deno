@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "jsxFactory": "React.createElement"
+    "jsxFactory": "React.createElement",
+    "lib": [
+      "dom",
+      "esnext",
+      "deno.ns",
+      "deno.unstable",
+      "dom.asynciterable"
+    ]
   }
 }

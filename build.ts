@@ -3,14 +3,6 @@ import * as esbuild from "https://deno.land/x/esbuild@v0.14.13/mod.js";
 const { files } = await Deno.emit("./react/app.tsx", {
   bundle: "module",
   check: true,
-  compilerOptions: {
-    allowSyntheticDefaultImports: true,
-    jsx: "react",
-    jsxFactory: "React.createElement",
-    lib: ["dom", "esnext"],
-    module: "esnext",
-    target: "es2015",
-  },
 });
 
 const result = await esbuild.transform(
@@ -19,7 +11,7 @@ const result = await esbuild.transform(
     minify: true,
     sourcemap: true,
     define: {
-      "ENVIRONMENT": "\"production\"",
+      "ENVIRONMENT": '"production"',
     },
     format: "esm",
   },
