@@ -1,4 +1,4 @@
-import React from "https://esm.sh/react";
+import { React } from "../lib.ts";
 
 interface Props {
   children: string;
