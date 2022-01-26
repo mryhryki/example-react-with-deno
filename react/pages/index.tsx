@@ -1,4 +1,4 @@
-import React from "https://cdn.esm.sh/v64/react@17.0.2/deno/react.js";
+import React from "https://esm.sh/react";
 
 interface Props {
   children: string;
