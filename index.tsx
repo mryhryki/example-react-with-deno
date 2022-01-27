@@ -19,7 +19,7 @@ const handler = async (request: Request): Promise<Response> => {
 
   switch (pathname) {
     case "/":
-    case "/counter":
+    case "/about":
       return new Response(
         `<html>
            <head>
