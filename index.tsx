@@ -21,7 +21,8 @@ const handler = async (request: Request): Promise<Response> => {
     case "/":
     case "/counter":
       return new Response(
-        `<html>
+        `<!doctype html>
+         <html>
            <head>
              <title>Hello, deno!</title>
            </head>

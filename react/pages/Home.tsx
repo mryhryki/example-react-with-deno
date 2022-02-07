@@ -1,7 +1,13 @@
-import { React } from "../lib.ts";
+import React from "https://esm.sh/react";
+import { Link } from "https://esm.sh/react-router-dom";
 
-interface Props {
-  children: string;
-}
-
-export const Home: React.FC<Props> = (props) => <div>{props.children}</div>;
+export const Home = (): React.ReactElement => (
+  <div>
+    <h1>Home</h1>
+    <ul>
+      <li>
+        <Link to="/counter">Counter</Link>
+      </li>
+    </ul>
+  </div>
+);
