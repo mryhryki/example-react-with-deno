@@ -5,16 +5,16 @@ import { createGlobalStyle } from "https://cdn.skypack.dev/styled-components@5.3
 import { Home } from "./pages/Home.tsx";
 import { Counter } from "./pages/Counter.tsx";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`;
+// const GlobalStyle = createGlobalStyle`
+//   body {
+//     margin: 0;
+//   }
+// `;
 
 const App = () => {
   return (
-    <>
-      <GlobalStyle/>
+    <React.Fragment>
+      {/*<GlobalStyle/>*/}
       <Switch>
         <Route path="/counter">
           <Counter/>
@@ -23,7 +23,7 @@ const App = () => {
           <Home/>
         </Route>
       </Switch>
-    </>
+    </React.Fragment>
   );
 }
 
