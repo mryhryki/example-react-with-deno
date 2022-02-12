@@ -31,8 +31,10 @@ const handler = async (request: Request): Promise<Response> => {
 
   const fileData = await Deno.readFile(`./dist/${pathname}`).catch(() => null);
   if (fileData != null) {
-    const contentType = getContentType(pathname)
-    const body = contentType.startsWith("text/") ? decoder.decode(fileData) : fileData
+    const contentType = getContentType(pathname);
+    const body = contentType.startsWith("text/")
+      ? decoder.decode(fileData)
+      : fileData;
     return new Response(body, {
       headers: {
         "content-type": contentType,
