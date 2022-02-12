@@ -3,8 +3,8 @@
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "lib": [
-      "dom",
       "esnext",
+      "dom",
       "deno.ns",
       "deno.unstable",
       "dom.asynciterable"

@@ -1,19 +1,25 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.14.13/mod.js";
 
-console.debug("Deno.emit: START")
+console.debug("Deno.emit: START");
 const { files } = await Deno.emit("./react/app.tsx", {
   bundle: "module",
   check: true,
 });
-console.debug("Deno.emit: END")
+console.debug("Deno.emit: END");
 
-console.debug("esbuild.transform: START")
+console.debug("esbuild.transform: START");
 const result = await esbuild.transform(files["deno:///bundle.js"], {
   minify: true,
   sourcemap: true,
   format: "esm",
 });
-console.debug("esbuild.transform: END")
+const css = new TextDecoder().decode(await Deno.readFile("./css/style.scss"))
+const cssResult = await esbuild.transform(css, {
+  minify: true,
+  loader: "css"
+});
+console.log(cssResult);
+console.debug("esbuild.transform: END");
 const { warnings, code, map } = result;
 if (warnings.length > 0) {
   warnings.forEach((warning) => console.warn(`WARN: ${warning.text}`));
