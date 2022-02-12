@@ -23,10 +23,12 @@ export const Todo = (): React.ReactElement => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          setTodoText((text) => {
-            addTodo(text);
-            return "";
-          });
+          if (todoText.trim() !== "") {
+            setTodoText((text) => {
+              addTodo(text);
+              return "";
+            });
+          }
         }}
       >
         <input
@@ -39,14 +41,16 @@ export const Todo = (): React.ReactElement => {
         <AddButton type="submit" value="Add" />
       </form>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.title} ({todo.createdAt})
-            <RemoveButton onClick={() => removeTodo(todo.id)}>
-              Remove
-            </RemoveButton>
-          </li>
-        ))}
+        {todos.length === 0
+          ? <li>(No TODOs)</li>
+          : todos.map((todo) => (
+            <li key={todo.id}>
+              {todo.title} ({todo.createdAt})
+              <RemoveButton onClick={() => removeTodo(todo.id)}>
+                Remove
+              </RemoveButton>
+            </li>
+          ))}
       </ul>
       <Footer />
     </div>

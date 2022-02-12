@@ -3,15 +3,10 @@ import {
   useState,
 } from "https://cdn.skypack.dev/react@17.0.2?dts";
 import dayjs from "https://cdn.skypack.dev/dayjs@1.10.7?dts";
-import UTC from "https://cdn.skypack.dev/dayjs@1.10.7/plugin/utc?dts";
-import timezone from "https://cdn.skypack.dev/dayjs@1.10.7/plugin/timezone?dts";
-
-dayjs.extend(UTC);
-dayjs.extend(timezone);
 
 const getId = (): string =>
   `${dayjs().unix()}-${Math.round(Math.random() * 99999)}`;
-const getNow = (): string => dayjs().format("YYYY-MM-DD hh:mm");
+const getNow = (): string => dayjs().format("YYYY-MM-DD hh:mm:ss");
 
 export interface Todo {
   id: string;
