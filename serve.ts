@@ -1,40 +1,34 @@
-import React from "https://esm.sh/react";
-// https://ja.reactjs.org/docs/react-dom-server.html
-import { serve } from "https://deno.land/std@0.122.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.125.0/http/server.ts";
 
 const PORT = 8080;
+const ToIndexPaths = ["/", "counter"];
 const decoder = new TextDecoder();
 
-const handler = async (request: Request): Promise<Response> => {
-  const { pathname } = new URL(request.url);
+const getContentType = (pathname: string): string => {
+  const extension = pathname.substring(pathname.lastIndexOf(".") + 1);
+  switch (extension) {
+    case "html":
+      return "text/html";
+    case "js":
+      return "text/javascript";
+    default:
+      return "application/octet-stream";
+  }
+};
 
-  const fileData = await Deno.readFile(pathname.substring(1)).catch(() => null);
+const handler = async (request: Request): Promise<Response> => {
+  const url = new URL(request.url);
+  const pathname = ToIndexPaths.includes(url.pathname)
+    ? "/index.html"
+    : url.pathname;
+
+  const fileData = await Deno.readFile(`./dist/${pathname}`).catch(() => null);
   if (fileData != null) {
     return new Response(decoder.decode(fileData), {
       headers: {
-        "content-type": "text/javascript",
+        "content-type": getContentType(pathname),
       },
     });
-  }
-
-  switch (pathname) {
-    case "/":
-    case "/counter":
-      return new Response(
-        `<!doctype html>
-         <html>
-           <head>
-             <title>Hello, deno!</title>
-           </head>
-           <body>
-             <div id="react-root"></div>
-             <script src="/public/bundle.js"></script>
-           </body>
-         </html>`,
-        {
-          headers: { "Content-Type": "text/html; charset=utf-8" },
-        },
-      );
   }
 
   return new Response(null, { status: 404 });

@@ -3,7 +3,7 @@
 This repository is an example of React.js development on Deno.
 
 ## Build React
-$
+
 ```shell
 $ deno run --allow-all --unstable build.ts
 ```
