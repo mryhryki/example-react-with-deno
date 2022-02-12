@@ -36,17 +36,19 @@ export const Todo = (): React.ReactElement => {
           maxLength={100}
           placeholder="Input TODO title"
         />
-        <AddButton type="submit" value="Add"/>
+        <AddButton type="submit" value="Add" />
       </form>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.title} ({todo.createdAt})
-            <RemoveButton onClick={() => removeTodo(todo.id)}>Remove</RemoveButton>
+            <RemoveButton onClick={() => removeTodo(todo.id)}>
+              Remove
+            </RemoveButton>
           </li>
         ))}
       </ul>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
