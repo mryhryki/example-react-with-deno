@@ -5,7 +5,7 @@ import { Footer } from "../component/footer.tsx";
 const Count = styled.div`
   text-align: center;
   font-size: 5rem;
-`
+`;
 
 const Buttons = styled.div`
   text-align: center;
@@ -13,7 +13,7 @@ const Buttons = styled.div`
   & > button {
     margin: 0 8px;
   }
-`
+`;
 
 export const Counter = (): React.ReactElement => {
   const [count, setCount] = React.useState(0);

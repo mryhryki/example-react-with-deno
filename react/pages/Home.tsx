@@ -9,6 +9,9 @@ export const Home = (): React.ReactElement => (
       <li>
         <Link to="/counter">Counter</Link>
       </li>
+      <li>
+        <Link to="/todo">TODO</Link>
+      </li>
     </ul>
     <Footer />
   </div>
