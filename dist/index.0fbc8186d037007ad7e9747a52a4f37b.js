@@ -7240,12 +7240,12 @@
     return null;
   };
 
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/component/footer.tsx
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/component/footer.tsx
   var Footer = () => /* @__PURE__ */ react_default.createElement("footer", null, /* @__PURE__ */ react_default.createElement(Link, {
     to: "/"
   }, "Home"));
 
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/pages/Home.tsx
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/pages/Home.tsx
   var Home = () => /* @__PURE__ */ react_default.createElement("div", null, /* @__PURE__ */ react_default.createElement("h1", null, "Example", " ", /* @__PURE__ */ react_default.createElement("a", {
     href: "https://reactjs.org/",
     target: "_blank",
@@ -9119,7 +9119,7 @@
   }();
   var styled_components_default = He2;
 
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/pages/Counter.tsx
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/pages/Counter.tsx
   var Count = styled_components_default.div`
   text-align: center;
   font-size: 5rem;
@@ -9363,169 +9363,9 @@
   var p3 = dayjs_min.p;
   var unix = dayjs_min.unix;
 
-  // deno:https://cdn.skypack.dev/-/dayjs@v1.10.7-Fs0gULP3uteC7O0DDOOk/dist=es2019,mode=imports/unoptimized/plugin/utc.js
-  var commonjsGlobal2 = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-  function createCommonjsModule7(fn) {
-    var module = { exports: {} };
-    return fn(module, module.exports), module.exports;
-  }
-  var __VIRTUAL_FILE = createCommonjsModule7(function(module, exports) {
-    !function(t2, i) {
-      module.exports = i();
-    }(commonjsGlobal2, function() {
-      var t2 = "minute", i = /[+-]\d\d(?::?\d\d)?/g, e3 = /([+-]|\d\d)/g;
-      return function(s, f3, n3) {
-        var u2 = f3.prototype;
-        n3.utc = function(t22) {
-          var i2 = { date: t22, utc: true, args: arguments };
-          return new f3(i2);
-        }, u2.utc = function(i2) {
-          var e22 = n3(this.toDate(), { locale: this.$L, utc: true });
-          return i2 ? e22.add(this.utcOffset(), t2) : e22;
-        }, u2.local = function() {
-          return n3(this.toDate(), { locale: this.$L, utc: false });
-        };
-        var o = u2.parse;
-        u2.parse = function(t22) {
-          t22.utc && (this.$u = true), this.$utils().u(t22.$offset) || (this.$offset = t22.$offset), o.call(this, t22);
-        };
-        var r3 = u2.init;
-        u2.init = function() {
-          if (this.$u) {
-            var t22 = this.$d;
-            this.$y = t22.getUTCFullYear(), this.$M = t22.getUTCMonth(), this.$D = t22.getUTCDate(), this.$W = t22.getUTCDay(), this.$H = t22.getUTCHours(), this.$m = t22.getUTCMinutes(), this.$s = t22.getUTCSeconds(), this.$ms = t22.getUTCMilliseconds();
-          } else
-            r3.call(this);
-        };
-        var a = u2.utcOffset;
-        u2.utcOffset = function(s2, f22) {
-          var n22 = this.$utils().u;
-          if (n22(s2))
-            return this.$u ? 0 : n22(this.$offset) ? a.call(this) : this.$offset;
-          if (typeof s2 == "string" && (s2 = function(t22) {
-            t22 === void 0 && (t22 = "");
-            var s3 = t22.match(i);
-            if (!s3)
-              return null;
-            var f32 = ("" + s3[0]).match(e3) || ["-", 0, 0], n32 = f32[0], u3 = 60 * +f32[1] + +f32[2];
-            return u3 === 0 ? 0 : n32 === "+" ? u3 : -u3;
-          }(s2)) === null)
-            return this;
-          var u22 = Math.abs(s2) <= 16 ? 60 * s2 : s2, o2 = this;
-          if (f22)
-            return o2.$offset = u22, o2.$u = s2 === 0, o2;
-          if (s2 !== 0) {
-            var r22 = this.$u ? this.toDate().getTimezoneOffset() : -1 * this.utcOffset();
-            (o2 = this.local().add(u22 + r22, t2)).$offset = u22, o2.$x.$localOffset = r22;
-          } else
-            o2 = this.utc();
-          return o2;
-        };
-        var h3 = u2.format;
-        u2.format = function(t22) {
-          var i2 = t22 || (this.$u ? "YYYY-MM-DDTHH:mm:ss[Z]" : "");
-          return h3.call(this, i2);
-        }, u2.valueOf = function() {
-          var t22 = this.$utils().u(this.$offset) ? 0 : this.$offset + (this.$x.$localOffset || new Date().getTimezoneOffset());
-          return this.$d.valueOf() - 6e4 * t22;
-        }, u2.isUTC = function() {
-          return !!this.$u;
-        }, u2.toISOString = function() {
-          return this.toDate().toISOString();
-        }, u2.toString = function() {
-          return this.toDate().toUTCString();
-        };
-        var l3 = u2.toDate;
-        u2.toDate = function(t22) {
-          return t22 === "s" && this.$offset ? n3(this.format("YYYY-MM-DD HH:mm:ss:SSS")).toDate() : l3.call(this);
-        };
-        var c3 = u2.diff;
-        u2.diff = function(t22, i2, e22) {
-          if (t22 && this.$u === t22.$u)
-            return c3.call(this, t22, i2, e22);
-          var s2 = this.local(), f22 = n3(t22).local();
-          return c3.call(s2, f22, i2, e22);
-        };
-      };
-    });
-  });
-  var utc_default = __VIRTUAL_FILE;
-
-  // deno:https://cdn.skypack.dev/-/dayjs@v1.10.7-Fs0gULP3uteC7O0DDOOk/dist=es2019,mode=imports/unoptimized/plugin/timezone.js
-  var commonjsGlobal3 = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-  function createCommonjsModule8(fn) {
-    var module = { exports: {} };
-    return fn(module, module.exports), module.exports;
-  }
-  var __VIRTUAL_FILE2 = createCommonjsModule8(function(module, exports) {
-    !function(t2, e3) {
-      module.exports = e3();
-    }(commonjsGlobal3, function() {
-      var t2 = { year: 0, month: 1, day: 2, hour: 3, minute: 4, second: 5 }, e3 = {};
-      return function(n3, i, o) {
-        var r3, a = function(t22, n22, i2) {
-          i2 === void 0 && (i2 = {});
-          var o2 = new Date(t22);
-          return function(t3, n32) {
-            n32 === void 0 && (n32 = {});
-            var i3 = n32.timeZoneName || "short", o3 = t3 + "|" + i3, r22 = e3[o3];
-            return r22 || (r22 = new Intl.DateTimeFormat("en-US", { hour12: false, timeZone: t3, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: i3 }), e3[o3] = r22), r22;
-          }(n22, i2).formatToParts(o2);
-        }, u2 = function(e22, n22) {
-          for (var i2 = a(e22, n22), r22 = [], u22 = 0; u22 < i2.length; u22 += 1) {
-            var f22 = i2[u22], s2 = f22.type, m3 = f22.value, c3 = t2[s2];
-            c3 >= 0 && (r22[c3] = parseInt(m3, 10));
-          }
-          var d3 = r22[3], l3 = d3 === 24 ? 0 : d3, v4 = r22[0] + "-" + r22[1] + "-" + r22[2] + " " + l3 + ":" + r22[4] + ":" + r22[5] + ":000", h3 = +e22;
-          return (o.utc(v4).valueOf() - (h3 -= h3 % 1e3)) / 6e4;
-        }, f3 = i.prototype;
-        f3.tz = function(t22, e22) {
-          t22 === void 0 && (t22 = r3);
-          var n22 = this.utcOffset(), i2 = this.toDate(), a2 = i2.toLocaleString("en-US", { timeZone: t22 }), u22 = Math.round((i2 - new Date(a2)) / 1e3 / 60), f22 = o(a2).$set("millisecond", this.$ms).utcOffset(15 * -Math.round(i2.getTimezoneOffset() / 15) - u22, true);
-          if (e22) {
-            var s2 = f22.utcOffset();
-            f22 = f22.add(n22 - s2, "minute");
-          }
-          return f22.$x.$timezone = t22, f22;
-        }, f3.offsetName = function(t22) {
-          var e22 = this.$x.$timezone || o.tz.guess(), n22 = a(this.valueOf(), e22, { timeZoneName: t22 }).find(function(t3) {
-            return t3.type.toLowerCase() === "timezonename";
-          });
-          return n22 && n22.value;
-        };
-        var s = f3.startOf;
-        f3.startOf = function(t22, e22) {
-          if (!this.$x || !this.$x.$timezone)
-            return s.call(this, t22, e22);
-          var n22 = o(this.format("YYYY-MM-DD HH:mm:ss:SSS"));
-          return s.call(n22, t22, e22).tz(this.$x.$timezone, true);
-        }, o.tz = function(t22, e22, n22) {
-          var i2 = n22 && e22, a2 = n22 || e22 || r3, f22 = u2(+o(), a2);
-          if (typeof t22 != "string")
-            return o(t22).tz(a2);
-          var s2 = function(t3, e32, n32) {
-            var i3 = t3 - 60 * e32 * 1e3, o2 = u2(i3, n32);
-            if (e32 === o2)
-              return [i3, e32];
-            var r22 = u2(i3 -= 60 * (o2 - e32) * 1e3, n32);
-            return o2 === r22 ? [i3, o2] : [t3 - 60 * Math.min(o2, r22) * 1e3, Math.max(o2, r22)];
-          }(o.utc(t22, i2).valueOf(), f22, a2), m3 = s2[0], c3 = s2[1], d3 = o(m3).utcOffset(c3);
-          return d3.$x.$timezone = a2, d3;
-        }, o.tz.guess = function() {
-          return Intl.DateTimeFormat().resolvedOptions().timeZone;
-        }, o.tz.setDefault = function(t22) {
-          r3 = t22;
-        };
-      };
-    });
-  });
-  var timezone_default = __VIRTUAL_FILE2;
-
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/hooks/use_todos.ts
-  dayjs_default.extend(utc_default);
-  dayjs_default.extend(timezone_default);
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/hooks/use_todos.ts
   var getId = () => `${dayjs_default().unix()}-${Math.round(Math.random() * 99999)}`;
-  var getNow = () => dayjs_default().format("YYYY-MM-DD hh:mm");
+  var getNow = () => dayjs_default().format("YYYY-MM-DD hh:mm:ss");
   var InitialTodos = [{
     id: getId(),
     title: "My TODO",
@@ -9549,7 +9389,7 @@
     };
   };
 
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/pages/Todo.tsx
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/pages/Todo.tsx
   var AddButton = styled_components_default.input`
   width: 5rem;
 `;
@@ -9564,10 +9404,12 @@
     return /* @__PURE__ */ react_default.createElement("div", null, /* @__PURE__ */ react_default.createElement("h1", null, "Example app: TODO"), /* @__PURE__ */ react_default.createElement("form", {
       onSubmit: (event) => {
         event.preventDefault();
-        setTodoText((text) => {
-          addTodo(text);
-          return "";
-        });
+        if (todoText.trim() !== "") {
+          setTodoText((text) => {
+            addTodo(text);
+            return "";
+          });
+        }
       }
     }, /* @__PURE__ */ react_default.createElement("input", {
       type: "text",
@@ -9578,14 +9420,14 @@
     }), /* @__PURE__ */ react_default.createElement(AddButton, {
       type: "submit",
       value: "Add"
-    })), /* @__PURE__ */ react_default.createElement("ul", null, todos.map((todo) => /* @__PURE__ */ react_default.createElement("li", {
+    })), /* @__PURE__ */ react_default.createElement("ul", null, todos.length === 0 ? /* @__PURE__ */ react_default.createElement("li", null, "(No TODOs)") : todos.map((todo) => /* @__PURE__ */ react_default.createElement("li", {
       key: todo.id
     }, todo.title, " (", todo.createdAt, ")", /* @__PURE__ */ react_default.createElement(RemoveButton, {
       onClick: () => removeTodo(todo.id)
     }, "Remove")))), /* @__PURE__ */ react_default.createElement(Footer, null));
   };
 
-  // deno:file:///Users/moriya/.temp/example-react-on-deno/react/App.tsx
+  // deno:file:///Users/moriya/.temp/example-react-with-deno/react/App.tsx
   var App = () => {
     return /* @__PURE__ */ react_default.createElement(react_default.Fragment, null, /* @__PURE__ */ react_default.createElement(Switch, null, /* @__PURE__ */ react_default.createElement(Route, {
       path: "/todo"
