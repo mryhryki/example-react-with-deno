@@ -1,15 +1,18 @@
-import React from "https://esm.sh/react";
-import ReactDOM from "https://esm.sh/react-dom";
-import { BrowserRouter, Route, Routes } from "https://esm.sh/react-router-dom";
-import { Home } from "./pages/Home.tsx";
-import { Counter } from "./pages/Counter.tsx";
+import React from "https://cdn.skypack.dev/react@17.0.2?dts";
+import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.2?dts";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/counter" element={<Counter />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("react-root"),
-);
+function App() {
+  return (
+    <div>
+      <h2>Hello from React!</h2>
+    </div>
+  );
+}
+
+function main() {
+  ReactDOM.render(<App />, document.querySelector("#main"));
+}
+
+addEventListener("DOMContentLoaded", () => {
+  main();
+});
