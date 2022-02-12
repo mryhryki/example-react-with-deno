@@ -11,6 +11,13 @@ const getContentType = (pathname: string): string => {
       return "text/html";
     case "js":
       return "text/javascript";
+    case "png":
+      return "image/png";
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "ico":
+      return "image/x-icon";
     default:
       return "application/octet-stream";
   }
@@ -24,9 +31,11 @@ const handler = async (request: Request): Promise<Response> => {
 
   const fileData = await Deno.readFile(`./dist/${pathname}`).catch(() => null);
   if (fileData != null) {
-    return new Response(decoder.decode(fileData), {
+    const contentType = getContentType(pathname)
+    const body = contentType.startsWith("text/") ? decoder.decode(fileData) : fileData
+    return new Response(body, {
       headers: {
-        "content-type": getContentType(pathname),
+        "content-type": contentType,
       },
     });
   }

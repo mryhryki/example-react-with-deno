@@ -1,7 +1,6 @@
 # example-react-with-deno
 
-This repository is an example [React](https://reactjs.org/) apps and bundled
-with [packup](https://packup.deno.dev/) on [Deno](https://deno.land/).
+Example [React](https://reactjs.org/) apps and bundled by [Packup](https://packup.deno.dev/) on [Deno](https://deno.land/).
 
 ## Install deno
 
