@@ -1,15 +1,32 @@
-import React from "https://esm.sh/react";
-import ReactDOM from "https://esm.sh/react-dom";
-import { BrowserRouter, Route, Routes } from "https://esm.sh/react-router-dom";
+import React from "https://cdn.skypack.dev/react@17.0.2?dts";
+import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.2?dts";
+import { Route, Switch } from "https://cdn.skypack.dev/wouter@2.7.5?dts";
+import { createGlobalStyle } from "https://cdn.skypack.dev/styled-components@5.3.3?dts";
 import { Home } from "./pages/Home.tsx";
 import { Counter } from "./pages/Counter.tsx";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/counter" element={<Counter />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("react-root"),
-);
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
+
+const App = () => {
+  return (
+    <>
+      <GlobalStyle/>
+      <Switch>
+        <Route path="/counter">
+          <Counter/>
+        </Route>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
+    </>
+  );
+}
+
+addEventListener("DOMContentLoaded", () => {
+  ReactDOM.render(<App/>, document.querySelector("#main"));
+});
