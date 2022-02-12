@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.125.0/http/server.ts";
 
 const PORT = 8080;
-const ToIndexPaths = ["/", "counter"];
+const ToIndexPaths = ["/", "/counter", "/todo"];
 const decoder = new TextDecoder();
 
 const getContentType = (pathname: string): string => {
@@ -18,7 +18,7 @@ const getContentType = (pathname: string): string => {
 
 const handler = async (request: Request): Promise<Response> => {
   const url = new URL(request.url);
-  const pathname = ToIndexPaths.includes(url.pathname)
+  const pathname = ToIndexPaths.find((p) => p === url.pathname) != null
     ? "/index.html"
     : url.pathname;
 
