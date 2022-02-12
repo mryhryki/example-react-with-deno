@@ -4,7 +4,7 @@ import { Link } from "https://cdn.skypack.dev/wouter@2.7.5?dts";
 
 const H1 = styled.h1`
   color: red;
-`
+`;
 
 export const Home = (): React.ReactElement => (
   <div>

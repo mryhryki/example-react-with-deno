@@ -5,28 +5,28 @@ import { createGlobalStyle } from "https://cdn.skypack.dev/styled-components@5.3
 import { Home } from "./pages/Home.tsx";
 import { Counter } from "./pages/Counter.tsx";
 
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     margin: 0;
-//   }
-// `;
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
 
 const App = () => {
   return (
     <React.Fragment>
-      {/*<GlobalStyle/>*/}
+      <GlobalStyle />
       <Switch>
         <Route path="/counter">
-          <Counter/>
+          <Counter />
         </Route>
         <Route path="/">
-          <Home/>
+          <Home />
         </Route>
       </Switch>
     </React.Fragment>
   );
-}
+};
 
 addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<App/>, document.querySelector("#main"));
+  ReactDOM.render(<App />, document.querySelector("#main"));
 });
