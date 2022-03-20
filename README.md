@@ -7,6 +7,14 @@ Example [React](https://reactjs.org/) apps and bundled by
 
 See https://deno.land/#installation
 
+## Build
+
+```shell
+$ deno run -A --unstable build_by_deno_emit.ts
+```
+
+<!--
+
 ## Install packup
 
 ```shell
@@ -24,6 +32,8 @@ $ packup serve ./index.html
 ```shell
 $ packup build ./index.html
 ```
+
+-->
 
 ## Start HTTP Server
 

@@ -29,7 +29,7 @@ const handler = async (request: Request): Promise<Response> => {
     ? "/index.html"
     : url.pathname;
 
-  const fileData = await Deno.readFile(`./dist/${pathname}`).catch(() => null);
+  const fileData = await Deno.readFile(`./${pathname}`).catch(() => null);
   if (fileData != null) {
     const contentType = getContentType(pathname);
     const body = contentType.startsWith("text/")

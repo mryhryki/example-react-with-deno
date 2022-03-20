@@ -23,6 +23,7 @@ const App = () => {
   );
 };
 
+console.debug(document.querySelector("#main"))
 addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<App />, document.querySelector("#main"));
 });

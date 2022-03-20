@@ -12,15 +12,7 @@ export const Home = (): React.ReactElement => (
       apps
     </h1>
     <p>
-      This app bundled by{" "}
-      <a
-        href="https://packup.deno.dev/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        packup
-      </a>
-      {" on "}
+      {"This app bundled on "}
       <a href="https://deno.land/" target="_blank" rel="noopener noreferrer">
         deno
       </a>
